@@ -15,3 +15,11 @@ cargo run
 [simple-rpn](./simple-rpn/)
 
 [binary-search](./binary-search/)
+
+## Memo
+
+`cargo new`の際にgitを設定しない
+
+```
+cargo new XXX --vcs none
+```
