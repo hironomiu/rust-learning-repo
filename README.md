@@ -16,6 +16,8 @@ cargo run
 
 [binary-search](./binary-search/)
 
+[multi-thread-calc](./multi-thread-calc/)
+
 ## Memo
 
 `cargo new`の際にgitを設定しない
