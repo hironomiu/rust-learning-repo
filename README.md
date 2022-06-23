@@ -18,6 +18,8 @@ cargo run
 
 [multi-thread-calc](./multi-thread-calc/)
 
+[struct_debug_print](./struct_debug_print/)
+
 ## Memo
 
 `cargo new`の際にgitを設定しない
