@@ -20,6 +20,8 @@ cargo run
 
 [struct_debug_print](./struct_debug_print/)
 
+[tower-of-hanoi](./tower-of-hanoi/)
+
 ## Memo
 
 `cargo new`の際にgitを設定しない
