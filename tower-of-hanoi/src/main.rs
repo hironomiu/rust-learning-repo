@@ -10,7 +10,7 @@ fn print_hanoi(disk_num: u32, starting_point: char, destination: char, support: 
     print_hanoi(disk_num - 1, support, destination, starting_point);
 }
 
-fn get_hanoi_array(
+fn get_hanoi_vector(
     disk_num: u32,
     starting_point: char,
     destination: char,
@@ -45,9 +45,9 @@ fn main() {
     println!("---- START ----");
     print_hanoi(4, 'A', 'B', 'C');
     println!("---- START ----");
-    println!("{:?}", get_hanoi_array(2, 'A', 'B', 'C'));
+    println!("{:?}", get_hanoi_vector(2, 'A', 'B', 'C'));
     println!("---- START ----");
-    println!("{:?}", get_hanoi_array(3, 'A', 'B', 'C'));
+    println!("{:?}", get_hanoi_vector(3, 'A', 'B', 'C'));
     println!("---- START ----");
-    println!("{:?}", get_hanoi_array(4, 'A', 'B', 'C'));
+    println!("{:?}", get_hanoi_vector(4, 'A', 'B', 'C'));
 }
