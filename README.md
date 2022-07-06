@@ -22,6 +22,8 @@ cargo run
 
 [tower-of-hanoi](./tower-of-hanoi/)
 
+[pascals-triangle](./pascals-triangle/)
+
 ## Memo
 
 `cargo new`の際にgitを設定しない
