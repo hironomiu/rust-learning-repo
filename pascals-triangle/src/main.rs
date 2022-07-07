@@ -29,18 +29,18 @@ fn print_pascals_triangle(data: Vec<Vec<u32>>) {
     for (index, line) in data.iter().enumerate() {
         let mut numbers = String::new();
         for j in line {
-            let blank: String = iter::repeat(String::from(" "))
+            let start_blank: String = iter::repeat(String::from(" "))
                 .take((width / 2) as usize)
                 .collect();
-            let blank2: String = iter::repeat(String::from(" "))
+            let end_blank: String = iter::repeat(String::from(" "))
                 .take((width / 2 - (j.to_string().len() as u32)) as usize)
                 .collect();
-            numbers = numbers + &blank + &j.to_string() + &blank2;
+            numbers = numbers + &start_blank + &j.to_string() + &end_blank;
         }
-        let blank2: String = iter::repeat(String::from(" "))
+        let start_blank: String = iter::repeat(String::from(" "))
             .take(((width / 2) * ((data.len() as u32) - (index as u32))) as usize)
             .collect();
-        println!("{}{}", blank2, numbers);
+        println!("{}{}", start_blank, numbers);
     }
 }
 
@@ -48,7 +48,7 @@ fn main() {
     println!("---- start ----");
     print_pascals_triangle(generate_pascals_triangle(3));
     println!("---- start ----");
-    print_pascals_triangle(generate_pascals_triangle(8));
+    print_pascals_triangle(generate_pascals_triangle(6));
     println!("---- start ----");
     print_pascals_triangle(generate_pascals_triangle(10));
 }
