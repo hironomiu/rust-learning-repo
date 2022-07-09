@@ -24,6 +24,8 @@ cargo run
 
 [pascals-triangle](./pascals-triangle/)
 
+[pascals_triangle_search](./pascals_triangle_search/)
+
 ## Memo
 
 `cargo new`の際にgitを設定しない
