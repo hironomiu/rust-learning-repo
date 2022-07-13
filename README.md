@@ -12,6 +12,8 @@ cargo run
 
 ## App
 
+[api_http_request](./api_http_request/)
+
 [simple-rpn](./simple-rpn/)
 
 [binary-search](./binary-search/)
