@@ -28,6 +28,8 @@ cargo run
 
 [pascals_triangle_search](./pascals_triangle_search/)
 
+[vector_numbers_shuffle](./vector_numbers_shuffle/)
+
 ## Memo
 
 `cargo new`の際にgitを設定しない
