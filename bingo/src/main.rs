@@ -1,16 +1,14 @@
-use rand::seq::SliceRandom;
-use rand::thread_rng;
 use std::io;
-
-fn create_numbers() -> Vec<u32> {
-    let mut numbers = Vec::new();
-    for i in 1..=75 {
-        numbers.push(i as u32);
-    }
-    let mut rng = thread_rng();
-    numbers.shuffle(&mut rng);
-    numbers
-}
+mod create_numbers;
+// fn create_numbers() -> Vec<u32> {
+//     let mut numbers = Vec::new();
+//     for i in 1..=75 {
+//         numbers.push(i as u32);
+//     }
+//     let mut rng = thread_rng();
+//     numbers.shuffle(&mut rng);
+//     numbers
+// }
 
 fn bingo(numbers: Vec<u32>) -> Vec<Vec<u32>> {
     let mut resutl_numbers: Vec<Vec<u32>> = Vec::new();
@@ -39,12 +37,11 @@ fn show_bingo(numbers: &Vec<Vec<u32>>) {
 
 fn check(numbers: &Vec<Vec<u32>>) -> bool {
     for y in numbers {
-        let mut result = 0;
-        for i in y.iter().filter(|&x| *x == 0) {
-            result += i;
-        }
-        if result == 5 {
+        if y[0] == 0 && y[1] == 0 && y[2] == 0 && y[3] == 0 && y[4] == 0 {
+            println!("called");
             return true;
+        } else {
+            println!("ng");
         }
     }
     for i in 0..5 {
@@ -75,10 +72,11 @@ fn check(numbers: &Vec<Vec<u32>>) -> bool {
     }
     return false;
 }
+
 fn main() {
-    let rand_numbers = create_numbers();
+    let rand_numbers = create_numbers::main();
     let mut numbers = bingo(rand_numbers);
-    let mut rand_numbers = create_numbers();
+    let mut rand_numbers = create_numbers::main();
     show_bingo(&numbers);
     println!("Start?");
     let mut guess = String::new();
@@ -116,5 +114,27 @@ fn main() {
         println!("Next?(push enter key)");
         let mut guess = String::new();
         io::stdin().read_line(&mut guess).expect("error");
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn check_test() {
+        // false
+        let rand_numbers = create_numbers::main();
+        let numbers = bingo(rand_numbers);
+        assert_eq!(check(&numbers), false);
+        // true
+        let rand_numbers = create_numbers::main();
+        let mut numbers = bingo(rand_numbers);
+        numbers[0][0] = 0;
+        numbers[0][1] = 0;
+        numbers[0][2] = 0;
+        numbers[0][3] = 0;
+        numbers[0][4] = 0;
+        assert_eq!(check(&numbers), true);
     }
 }
