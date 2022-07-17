@@ -48,9 +48,15 @@ fn check(numbers: &Vec<Vec<u8>>) -> bool {
 }
 
 fn main() {
-    let rand_numbers = create_numbers::main();
+    let rand_numbers = match create_numbers::main() {
+        Ok(v) => v,
+        Err(_) => panic!("error"),
+    };
     let mut numbers = bingo::bingo(rand_numbers).unwrap();
-    let mut rand_numbers = create_numbers::main();
+    let mut rand_numbers = match create_numbers::main() {
+        Ok(v) => v,
+        Err(_) => panic!("error"),
+    };
     show_bingo(&numbers);
     println!("Start?");
     let mut guess = String::new();
@@ -98,11 +104,17 @@ mod tests {
     #[test]
     fn check_test() {
         // false
-        let rand_numbers = create_numbers::main();
+        let rand_numbers = match create_numbers::main() {
+            Ok(v) => v,
+            Err(_) => panic!("error"),
+        };
         let numbers = bingo::bingo(rand_numbers).unwrap();
         assert_eq!(check(&numbers), false);
         // true
-        let rand_numbers = create_numbers::main();
+        let rand_numbers = match create_numbers::main() {
+            Ok(v) => v,
+            Err(_) => panic!("error"),
+        };
         let mut numbers = bingo::bingo(rand_numbers).unwrap();
         numbers[0][0] = 0;
         numbers[0][1] = 0;
