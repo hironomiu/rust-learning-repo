@@ -1,14 +1,17 @@
+const NUMBERS_MAX_LENGTH: usize = 25;
+const NUMBERS_CENTER_POSITION: usize = 12;
+
 pub fn bingo(numbers: Vec<u8>) -> Result<Vec<Vec<u8>>, String> {
   let mut resutl_numbers: Vec<Vec<u8>> = Vec::new();
   // TODO: エラーハンドリング
-  if numbers.len() < 25 {
+  if numbers.len() < NUMBERS_MAX_LENGTH {
     return Err(String::from("error"));
   }
-  for y in 0..5 {
+  for y in 0..NUMBERS_MAX_LENGTH {
     resutl_numbers.push(Vec::new());
-    for x in 0..5 {
-      let i = y * 5 + x;
-      if i == 12 {
+    for x in 0..NUMBERS_MAX_LENGTH {
+      let i = y * NUMBERS_MAX_LENGTH + x;
+      if i == NUMBERS_CENTER_POSITION {
         resutl_numbers[y].push(0);
       } else {
         resutl_numbers[y].push(numbers[i] as u8);
