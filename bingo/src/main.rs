@@ -122,5 +122,53 @@ mod tests {
         numbers[0][3] = 0;
         numbers[0][4] = 0;
         assert_eq!(check(&numbers), true);
+        // true
+        let rand_numbers = match create_numbers::main() {
+            Ok(v) => v,
+            Err(_) => panic!("error"),
+        };
+        let mut numbers = bingo::bingo(rand_numbers).unwrap();
+        numbers[1][0] = 0;
+        numbers[1][1] = 0;
+        numbers[1][2] = 0;
+        numbers[1][3] = 0;
+        numbers[1][4] = 0;
+        assert_eq!(check(&numbers), true);
+        // true
+        let rand_numbers = match create_numbers::main() {
+            Ok(v) => v,
+            Err(_) => panic!("error"),
+        };
+        let mut numbers = bingo::bingo(rand_numbers).unwrap();
+        numbers[4][0] = 0;
+        numbers[4][1] = 0;
+        numbers[4][2] = 0;
+        numbers[4][3] = 0;
+        numbers[4][4] = 0;
+        assert_eq!(check(&numbers), true);
+        // true
+        let rand_numbers = match create_numbers::main() {
+            Ok(v) => v,
+            Err(_) => panic!("error"),
+        };
+        let mut numbers = bingo::bingo(rand_numbers).unwrap();
+        numbers[0][0] = 0;
+        numbers[1][1] = 0;
+        numbers[2][2] = 0;
+        numbers[3][3] = 0;
+        numbers[4][4] = 0;
+        assert_eq!(check(&numbers), true);
+        // true
+        let rand_numbers = match create_numbers::main() {
+            Ok(v) => v,
+            Err(_) => panic!("error"),
+        };
+        let mut numbers = bingo::bingo(rand_numbers).unwrap();
+        numbers[0][4] = 0;
+        numbers[1][3] = 0;
+        numbers[2][2] = 0;
+        numbers[3][1] = 0;
+        numbers[4][0] = 0;
+        assert_eq!(check(&numbers), true);
     }
 }
