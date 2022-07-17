@@ -1,4 +1,5 @@
 use std::io;
+mod bingo;
 mod create_numbers;
 // fn create_numbers() -> Vec<u32> {
 //     let mut numbers = Vec::new();
@@ -10,21 +11,21 @@ mod create_numbers;
 //     numbers
 // }
 
-fn bingo(numbers: Vec<u32>) -> Vec<Vec<u32>> {
-    let mut resutl_numbers: Vec<Vec<u32>> = Vec::new();
-    for y in 0..5 {
-        resutl_numbers.push(Vec::new());
-        for x in 0..5 {
-            let i = y * 5 + x;
-            if i == 12 {
-                resutl_numbers[y].push(0);
-            } else {
-                resutl_numbers[y].push(numbers[i] as u32);
-            }
-        }
-    }
-    resutl_numbers
-}
+// fn bingo(numbers: Vec<u32>) -> Vec<Vec<u32>> {
+//     let mut resutl_numbers: Vec<Vec<u32>> = Vec::new();
+//     for y in 0..5 {
+//         resutl_numbers.push(Vec::new());
+//         for x in 0..5 {
+//             let i = y * 5 + x;
+//             if i == 12 {
+//                 resutl_numbers[y].push(0);
+//             } else {
+//                 resutl_numbers[y].push(numbers[i] as u32);
+//             }
+//         }
+//     }
+//     resutl_numbers
+// }
 
 fn show_bingo(numbers: &Vec<Vec<u32>>) {
     for y in numbers {
@@ -75,7 +76,7 @@ fn check(numbers: &Vec<Vec<u32>>) -> bool {
 
 fn main() {
     let rand_numbers = create_numbers::main();
-    let mut numbers = bingo(rand_numbers);
+    let mut numbers = bingo::bingo(rand_numbers).unwrap();
     let mut rand_numbers = create_numbers::main();
     show_bingo(&numbers);
     println!("Start?");
@@ -125,11 +126,11 @@ mod tests {
     fn check_test() {
         // false
         let rand_numbers = create_numbers::main();
-        let numbers = bingo(rand_numbers);
+        let numbers = bingo::bingo(rand_numbers).unwrap();
         assert_eq!(check(&numbers), false);
         // true
         let rand_numbers = create_numbers::main();
-        let mut numbers = bingo(rand_numbers);
+        let mut numbers = bingo::bingo(rand_numbers).unwrap();
         numbers[0][0] = 0;
         numbers[0][1] = 0;
         numbers[0][2] = 0;
