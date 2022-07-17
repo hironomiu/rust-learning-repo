@@ -1,33 +1,8 @@
 use std::io;
 mod bingo;
 mod create_numbers;
-// fn create_numbers() -> Vec<u32> {
-//     let mut numbers = Vec::new();
-//     for i in 1..=75 {
-//         numbers.push(i as u32);
-//     }
-//     let mut rng = thread_rng();
-//     numbers.shuffle(&mut rng);
-//     numbers
-// }
 
-// fn bingo(numbers: Vec<u32>) -> Vec<Vec<u32>> {
-//     let mut resutl_numbers: Vec<Vec<u32>> = Vec::new();
-//     for y in 0..5 {
-//         resutl_numbers.push(Vec::new());
-//         for x in 0..5 {
-//             let i = y * 5 + x;
-//             if i == 12 {
-//                 resutl_numbers[y].push(0);
-//             } else {
-//                 resutl_numbers[y].push(numbers[i] as u32);
-//             }
-//         }
-//     }
-//     resutl_numbers
-// }
-
-fn show_bingo(numbers: &Vec<Vec<u32>>) {
+fn show_bingo(numbers: &Vec<Vec<u8>>) {
     for y in numbers {
         for num in y {
             print!("{:3}", num);
@@ -36,13 +11,11 @@ fn show_bingo(numbers: &Vec<Vec<u32>>) {
     }
 }
 
-fn check(numbers: &Vec<Vec<u32>>) -> bool {
+fn check(numbers: &Vec<Vec<u8>>) -> bool {
     for y in numbers {
         if y[0] == 0 && y[1] == 0 && y[2] == 0 && y[3] == 0 && y[4] == 0 {
             println!("called");
             return true;
-        } else {
-            println!("ng");
         }
     }
     for i in 0..5 {

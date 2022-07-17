@@ -1,7 +1,7 @@
-pub fn bingo(numbers: Vec<u32>) -> Result<Vec<Vec<u32>>, String> {
-  let mut resutl_numbers: Vec<Vec<u32>> = Vec::new();
+pub fn bingo(numbers: Vec<u8>) -> Result<Vec<Vec<u8>>, String> {
+  let mut resutl_numbers: Vec<Vec<u8>> = Vec::new();
   // TODO: エラーハンドリング
-  if numbers.len() < 1 {
+  if numbers.len() < 25 {
     return Err(String::from("error"));
   }
   for y in 0..5 {
@@ -11,7 +11,7 @@ pub fn bingo(numbers: Vec<u32>) -> Result<Vec<Vec<u32>>, String> {
       if i == 12 {
         resutl_numbers[y].push(0);
       } else {
-        resutl_numbers[y].push(numbers[i] as u32);
+        resutl_numbers[y].push(numbers[i] as u8);
       }
     }
   }
@@ -25,13 +25,18 @@ mod tests {
   #[test]
   fn bingo_test() {
     // Err
-    let numbers: Vec<u32> = Vec::new();
+    let numbers: Vec<u8> = Vec::new();
+    assert_eq!(bingo(numbers), Err(String::from("error")));
+    // Err
+    let numbers: Vec<u8> = vec![
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+    ];
     assert_eq!(bingo(numbers), Err(String::from("error")));
     // true
-    let numbers: Vec<u32> = vec![
+    let numbers: Vec<u8> = vec![
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
     ];
-    let ans: Vec<Vec<u32>> = vec![
+    let ans: Vec<Vec<u8>> = vec![
       [1, 2, 3, 4, 5].to_vec(),
       [6, 7, 8, 9, 10].to_vec(),
       [11, 12, 0, 14, 15].to_vec(),
