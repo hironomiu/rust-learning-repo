@@ -1,6 +1,6 @@
 use std::io;
 mod bingo;
-mod create_numbers;
+mod create_unique_random_numbers;
 
 fn show_bingo(numbers: &Vec<Vec<u8>>) {
     for y in numbers {
@@ -47,12 +47,12 @@ fn check(numbers: &Vec<Vec<u8>>) -> bool {
 }
 
 fn main() {
-    let rand_numbers = match create_numbers::main() {
+    let rand_numbers = match create_unique_random_numbers::main() {
         Ok(v) => v,
         Err(_) => panic!("error"),
     };
     let mut numbers = bingo::bingo(rand_numbers).unwrap();
-    let mut rand_numbers = match create_numbers::main() {
+    let mut rand_numbers = match create_unique_random_numbers::main() {
         Ok(v) => v,
         Err(_) => panic!("error"),
     };
