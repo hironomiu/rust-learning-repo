@@ -18,6 +18,8 @@ cargo run
 
 [binary-search](./binary-search/)
 
+[image_inversion](./image_inversion/)
+
 [multi-thread-calc](./multi-thread-calc/)
 
 [pascals-triangle](./pascals-triangle/)

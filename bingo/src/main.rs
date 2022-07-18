@@ -103,14 +103,14 @@ mod tests {
     #[test]
     fn check_test() {
         // false
-        let rand_numbers = match create_numbers::main() {
+        let rand_numbers = match create_unique_random_numbers::main() {
             Ok(v) => v,
             Err(_) => panic!("error"),
         };
         let numbers = bingo::bingo(rand_numbers).unwrap();
         assert_eq!(check(&numbers), false);
         // true
-        let rand_numbers = match create_numbers::main() {
+        let rand_numbers = match create_unique_random_numbers::main() {
             Ok(v) => v,
             Err(_) => panic!("error"),
         };
@@ -122,7 +122,7 @@ mod tests {
         numbers[0][4] = 0;
         assert_eq!(check(&numbers), true);
         // true
-        let rand_numbers = match create_numbers::main() {
+        let rand_numbers = match create_unique_random_numbers::main() {
             Ok(v) => v,
             Err(_) => panic!("error"),
         };
@@ -134,7 +134,7 @@ mod tests {
         numbers[1][4] = 0;
         assert_eq!(check(&numbers), true);
         // true
-        let rand_numbers = match create_numbers::main() {
+        let rand_numbers = match create_unique_random_numbers::main() {
             Ok(v) => v,
             Err(_) => panic!("error"),
         };
@@ -146,7 +146,7 @@ mod tests {
         numbers[4][4] = 0;
         assert_eq!(check(&numbers), true);
         // true
-        let rand_numbers = match create_numbers::main() {
+        let rand_numbers = match create_unique_random_numbers::main() {
             Ok(v) => v,
             Err(_) => panic!("error"),
         };
@@ -158,7 +158,7 @@ mod tests {
         numbers[4][4] = 0;
         assert_eq!(check(&numbers), true);
         // true
-        let rand_numbers = match create_numbers::main() {
+        let rand_numbers = match create_unique_random_numbers::main() {
             Ok(v) => v,
             Err(_) => panic!("error"),
         };
