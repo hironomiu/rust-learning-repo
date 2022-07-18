@@ -1,4 +1,6 @@
 const NUMBERS_MAX_LENGTH: usize = 25;
+const Y_MAX_LENGTH: usize = 5;
+const X_MAX_LENGTH: usize = 5;
 const NUMBERS_CENTER_POSITION: usize = 12;
 
 pub fn bingo(numbers: Vec<u8>) -> Result<Vec<Vec<u8>>, String> {
@@ -7,10 +9,10 @@ pub fn bingo(numbers: Vec<u8>) -> Result<Vec<Vec<u8>>, String> {
   if numbers.len() < NUMBERS_MAX_LENGTH {
     return Err(String::from("error"));
   }
-  for y in 0..NUMBERS_MAX_LENGTH {
+  for y in 0..Y_MAX_LENGTH {
     resutl_numbers.push(Vec::new());
-    for x in 0..NUMBERS_MAX_LENGTH {
-      let i = y * NUMBERS_MAX_LENGTH + x;
+    for x in 0..X_MAX_LENGTH {
+      let i = y * Y_MAX_LENGTH + x;
       if i == NUMBERS_CENTER_POSITION {
         resutl_numbers[y].push(0);
       } else {

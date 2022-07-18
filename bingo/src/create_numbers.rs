@@ -9,3 +9,18 @@ pub fn main() -> Result<Vec<u8>, String> {
   numbers.shuffle(&mut rng);
   Ok(numbers)
 }
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn main_test() {
+    let ret = match main() {
+      Ok(v) => v,
+      Err(_) => vec![],
+    };
+
+    assert_eq!(ret.len(), 75);
+  }
+}

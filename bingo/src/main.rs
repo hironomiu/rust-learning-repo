@@ -14,7 +14,6 @@ fn show_bingo(numbers: &Vec<Vec<u8>>) {
 fn check(numbers: &Vec<Vec<u8>>) -> bool {
     for y in numbers {
         if y[0] == 0 && y[1] == 0 && y[2] == 0 && y[3] == 0 && y[4] == 0 {
-            println!("called");
             return true;
         }
     }
