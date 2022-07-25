@@ -18,6 +18,8 @@ cargo run
 
 [binary-search](./binary-search/)
 
+[generate_uuid_ulid](./generate_uuid_ulid/)
+
 [image_inversion](./image_inversion/)
 
 [multi-thread-calc](./multi-thread-calc/)
