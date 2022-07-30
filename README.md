@@ -28,6 +28,8 @@ cargo run
 
 [pascals_triangle_search](./pascals_triangle_search/)
 
+[resutl_sample](./resutl_sample/)
+
 [simple-rpn](./simple-rpn/)
 
 [struct_debug_print](./struct_debug_print/)
