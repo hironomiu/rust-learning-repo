@@ -1,5 +1,6 @@
 use std::fs::File;
 use std::io::ErrorKind;
+use std::path::PathBuf;
 use thiserror::Error;
 use tracing::error;
 
@@ -10,7 +11,8 @@ enum Error {
 }
 
 fn create_file_if_not_exists() -> Result<File, Error> {
-    let file = match File::open("hello.txt") {
+    let path = PathBuf::from("hello.txt");
+    let file = match File::open(path) {
         Ok(file) => file,
         Err(ref error) if error.kind() == ErrorKind::NotFound => match File::create("hello.txt") {
             Ok(file) => file,
