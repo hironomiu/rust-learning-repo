@@ -24,6 +24,8 @@ cargo run
 
 [multi-thread-calc](./multi-thread-calc/)
 
+[number_1_to_10](./number_1_to_10/)
+
 [pascals-triangle](./pascals-triangle/)
 
 [pascals_triangle_search](./pascals_triangle_search/)
