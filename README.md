@@ -32,6 +32,8 @@ cargo run
 
 [resutl_sample](./resutl_sample/)
 
+[single_thread_http_server](./single_thread_http_server/)
+
 [simple-rpn](./simple-rpn/)
 
 [struct_debug_print](./struct_debug_print/)
