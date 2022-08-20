@@ -18,7 +18,17 @@ fn handle_connection(mut stream: TcpStream) {
 
     println!("Request: {}", String::from_utf8_lossy(&buffer[..]));
 
-    let mut file = File::open("index.html").unwrap();
+    let get = b"GET / HTTP/1.1\r\n";
+
+    let mut filename = String::new();
+
+    if buffer.starts_with(get) {
+        filename = format!("index.html");
+    } else {
+        filename = format!("404.html");
+    }
+
+    let mut file = File::open(filename).unwrap();
     let mut contents = String::new();
     file.read_to_string(&mut contents).unwrap();
 
