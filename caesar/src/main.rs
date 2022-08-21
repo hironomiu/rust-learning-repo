@@ -12,14 +12,14 @@ fn encrypt(text: &str, shift: u8) -> Result<String, ()> {
 
     Ok(text
         .chars()
+        .map(|c| c as u8)
         .map(|c| {
-            if is_big_az(c as u8) {
-                ((c as u8 - code_big_a + big_range + shift) % big_range + code_big_a) as char
-            } else if is_small_az(c as u8) {
-                ((c as u8 - code_small_a + small_range + shift) % small_range + code_small_a)
-                    as char
+            if is_big_az(c) {
+                ((c - code_big_a + big_range + shift) % big_range + code_big_a) as char
+            } else if is_small_az(c) {
+                ((c - code_small_a + small_range + shift) % small_range + code_small_a) as char
             } else {
-                c
+                c as char
             }
         })
         .collect())
