@@ -7,12 +7,15 @@ fn encrypt(text: &str, shift: u8) -> Result<String, ()> {
     let code_small_z = 'z' as u8;
     let small_range: u8 = code_small_z - code_small_a + 1;
 
+    let is_big_az = |c: u8| code_big_a <= c && c <= code_big_z;
+    let is_small_az = |c: u8| code_small_a <= c && c <= code_small_z;
+
     Ok(text
         .chars()
         .map(|c| {
-            if code_big_a <= c as u8 && c as u8 <= code_big_z {
+            if is_big_az(c as u8) {
                 ((c as u8 - code_big_a + big_range + shift) % big_range + code_big_a) as char
-            } else if code_small_a <= c as u8 && c as u8 <= code_small_z {
+            } else if is_small_az(c as u8) {
                 ((c as u8 - code_small_a + small_range + shift) % small_range + code_small_a)
                     as char
             } else {
