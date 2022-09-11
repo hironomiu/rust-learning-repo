@@ -9,3 +9,5 @@
 ```
 cargo run --bin xxx
 ```
+
+[same_numbers:ゾロ目](./src/bin/same_numbers.rs)
