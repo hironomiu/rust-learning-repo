@@ -32,6 +32,8 @@ cargo run
 
 [pascals_triangle_search](./pascals_triangle_search/)
 
+[range_numbers_shift](./range_numbers_shift/)
+
 [resutl_sample](./resutl_sample/)
 
 [single_thread_http_server](./single_thread_http_server/)
